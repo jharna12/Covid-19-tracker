@@ -23,12 +23,15 @@ totalDeath=0;
         this.globalData=result;
 
         result.forEach(cs => {
-          if(Number.isNaN(cs.confirmed))
+          if(!Number.isNaN(cs.confirmed))
+          {
           this.totalActive+=cs.active;
           this.totalConfirmed+=cs.confirmed;
-          this.totalDeath+=cs.death;
+          this.totalDeath+=cs.deaths;
           this.totalRecovered+=cs.recovered;
-          
+          }
+          console.log(this.totalConfirmed);
+        
         });
       })
     }

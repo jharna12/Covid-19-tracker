@@ -24,7 +24,8 @@ getGlobalData()
       let raw={} 
       let row={}
       let rows=result.split("\n");
-      rows.splice(0,1); // to remove header row and start the array from 1 index
+      rows.splice(0,1);
+      // to remove header row and start the array from 1 index
       rows.forEach(row=>{
         let cols=row.split(/,(?=\S)/) // this regular expression is to consider all the names which are seperated with comma as a single name
 
@@ -51,16 +52,17 @@ getGlobalData()
          raw[cs.country]=cs;
        
 
-
+         console.log (cs.deaths);
 
 // data.push({
  
 // })
-      //  console.log(cols);
-       // console.log(data);
+      //console.log(cols);
+       //console.log(data);
       })
-      // console.log (rows);
-  return <GlobalDataSummary[]>Object.values(raw);// to return only values not key
+     
+  return <GlobalDataSummary[]>Object.values(raw);
+// to return only values not key
   // typecast the value to globalData summary
 }
       ))
