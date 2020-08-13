@@ -1,7 +1,27 @@
 <div class ="jumbotron bg-white text-center">
     <h1 class="dispaly-4">Corona Covid-19 tracker</h1>
     <hr>
-    
     <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalRecovered]='totalRecovered' [totalDeath]='totalDeath'></app-dashboard-card>
     </div>
-    <google-chart [data]="pieChart"></google-chart>
+    <hr>
+    <div class="ui form">
+      <div class="inline fields">
+        <label for="fruit" class="radio-inline" style="margin:10px">Select Case Type:</label>
+            <input type="radio"  value='c'name="fruit" checked="" tabindex="0" class="hidden">
+            <label style="margin:10px">Confirmed</label>
+            <input type="radio" value='d' name="fruit" tabindex="0" class="hidden">
+            <label class="radio-inline" style="margin:10px">Deaths</label>
+            <input type="radio"  value='r' name="fruit" tabindex="0" class="hidden">
+            <label style="margin:10px">Recovered</label>
+            <input type="radio" value='a' name="fruit" tabindex="0" class="hidden">
+            <label style="margin:10px">Active</label>
+    <div class="row">
+      <div class="col  p-2 m-2">
+        <google-chart [data]="pieChart"></google-chart>
+        </div>
+        <div class="col  p-2 m-2">
+          <google-chart [data]="columnChart"></google-chart>
+      </div>
+    </div>
+    
+   

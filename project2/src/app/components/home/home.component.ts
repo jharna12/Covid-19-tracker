@@ -32,6 +32,9 @@ globalData: GlobalDataSummary[];
 pieChart: GoogleChartInterface={
   chartType:'PieChart'
 }
+columnChart: GoogleChartInterface={
+  chartType:'ColumnChart'
+}
 totalConfirmed=0;
 totalActive=0;
 totalRecovered=0;
@@ -41,6 +44,7 @@ initChart(){
   let dataTable=[];
   dataTable.push(['Country','Cases'])
   this.globalData.forEach(cs=>{
+    if(cs.confirmed>2000)
     dataTable.push([
 cs.country,cs.confirmed
     ])
@@ -49,7 +53,12 @@ cs.country,cs.confirmed
 this.pieChart = {
     chartType: 'PieChart',
     dataTable: dataTable,
-    options: {'Country': 'Cases'},
+    options: {height:500,'Country': 'Cases'},
+  };
+  this.columnChart = {
+    chartType: 'ColumnChart',
+    dataTable: dataTable,
+    options: {height:500,'Country': 'Cases'},
   };
 }
   ngOnInit(): void {
