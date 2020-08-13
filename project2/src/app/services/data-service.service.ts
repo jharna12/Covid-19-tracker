@@ -52,7 +52,7 @@ getGlobalData()
          raw[cs.country]=cs;
        
 
-         console.log (cs.deaths);
+      //   console.log (cs.deaths);
 
 // data.push({
  
