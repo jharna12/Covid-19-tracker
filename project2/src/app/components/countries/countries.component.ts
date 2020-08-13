@@ -32,7 +32,7 @@ countries:string[]=[];
         {
           this.totalConfirmed=cs.confirmed;
           this.totalActive=cs.active; 
-          this.totalDeath=cs.death;
+          this.totalDeath=cs.deaths;
            this.totalRecovered=cs.recovered;
         }
       })

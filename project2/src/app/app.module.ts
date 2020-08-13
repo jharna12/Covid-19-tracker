@@ -8,6 +8,7 @@ import { CountriesComponent } from './components/countries/countries.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DashboardCardComponent } from './components/dashboard-card/dashboard-ca
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    Ng2GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
