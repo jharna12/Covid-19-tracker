@@ -9,8 +9,17 @@ import { templateJitUrl } from '@angular/compiler';
 })
 export class DataServiceService {
 private globalDataUrl="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-04-2020.csv";
-
+private dateWiseDataUrl="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
+///github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
   constructor(private http:HttpClient) { }
+  getDateWiseData(){
+    return this.http.get(this.dateWiseDataUrl,{responseType:'text'}).pipe(
+      map(result=>{
+        return result;
+      })
+    )
+    
+  }
 getGlobalData()
 {
 

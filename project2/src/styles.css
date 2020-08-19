@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+#chart1{
+    width: 60%; /* set width to 50% of page width */
+    float: left; /* Make the element go to the left */
+}
+
+#chart2{
+    width: 70%;
+    float: right;
+}

@@ -81,6 +81,7 @@ this.pieChart = {
   };
 }
   ngOnInit(): void {
+   
     this.dataService.getGlobalData().
     subscribe(
   result=>{

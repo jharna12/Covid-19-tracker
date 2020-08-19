@@ -16,6 +16,12 @@ countries:string[]=[];
   constructor(private service:DataServiceService) { }
 
   ngOnInit(): void {
+    //to fetch data timewise
+    this.service.getDateWiseData().subscribe(
+      result=>{
+      console.log(result);
+      }
+    )
 
     //to fetch all the countries from the globalData 
     this.service.getGlobalData().subscribe(result=>{
