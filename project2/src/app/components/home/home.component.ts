@@ -81,7 +81,11 @@ this.pieChart = {
         });
         this.initChart();
       })
-      
-    }
+          }
+          updateChart(input:HTMLInputElement)
+      {
+        console.log(input.value);
+      }
+
   }
 

@@ -7,13 +7,13 @@
     <div class="ui form">
       <div class="inline fields">
         <label for="fruit" class="radio-inline" style="margin:10px">Select Case Type:</label>
-            <input type="radio"  value='c'name="fruit" checked="" tabindex="0" class="hidden">
+            <input type="radio"  value='c' id='c' #c (click)='updateChart(c)' name="casetype" checked="" tabindex="0" class="hidden">
             <label style="margin:10px">Confirmed</label>
-            <input type="radio" value='d' name="fruit" tabindex="0" class="hidden">
+            <input type="radio" value='d'  id='d' #d (click)='updateChart(d)'name="casetype" tabindex="0" class="hidden">
             <label class="radio-inline" style="margin:10px">Deaths</label>
-            <input type="radio"  value='r' name="fruit" tabindex="0" class="hidden">
+            <input type="radio"  value='r' id='r' #r (click)='updateChart(r)' name="casetype" tabindex="0" class="hidden">
             <label style="margin:10px">Recovered</label>
-            <input type="radio" value='a' name="fruit" tabindex="0" class="hidden">
+            <input type="radio" value='a' id='a'#a (click)='updateChart(a)' name="casetype" tabindex="0" class="hidden">
             <label style="margin:10px">Active</label>
     <div class="row">
       <div class="col  p-2 m-2">
