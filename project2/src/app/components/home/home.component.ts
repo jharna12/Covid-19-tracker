@@ -40,24 +40,43 @@ totalActive=0;
 totalRecovered=0;
 totalDeath=0;
   constructor(private dataService : DataServiceService) { }
-initChart(){
-  let dataTable=[];
-  dataTable.push(['Country','Cases'])
+  updateChart(input:HTMLInputElement)
+      {
+        console.log(input.value);
+        this.initChart(input.value)
+      }
+
+
+initChart(caseType:string){
+  let datatable=[];
+  datatable.push(["Country","Cases"])
   this.globalData.forEach(cs=>{
-    if(cs.confirmed>2000)
-    dataTable.push([
-cs.country,cs.confirmed
+    let value:number;
+    if(caseType=='c')
+       if(cs.confirmed>2000)
+         value=cs.confirmed
+    if(caseType=='d')
+      if(cs.death>1000)
+         value=cs.death
+    if(caseType=='r')
+      if(cs.recovered>2000)
+          value=cs.recovered
+    if(caseType=='a')  
+         if(cs.active>2000)
+         value=cs.active
+    datatable.push([
+cs.country,value
     ])
   })
-  console.log(dataTable);
+  //console.log(dataTable);
 this.pieChart = {
     chartType: 'PieChart',
-    dataTable: dataTable,
-    options: {height:500,'Country': 'Cases'},
+    dataTable: datatable,
+    options: { height:500,'Country': 'Cases'},
   };
   this.columnChart = {
     chartType: 'ColumnChart',
-    dataTable: dataTable,
+    dataTable: datatable,
     options: {height:500,'Country': 'Cases'},
   };
 }
@@ -67,7 +86,6 @@ this.pieChart = {
   result=>{
         console.log(result);
         this.globalData=result;
-
         result.forEach(cs => {
           if(!Number.isNaN(cs.confirmed))
           {
@@ -76,16 +94,10 @@ this.pieChart = {
           this.totalDeath+=cs.deaths;
           this.totalRecovered+=cs.recovered;
           }
-          console.log(this.totalConfirmed);
-        
-        });
-        this.initChart();
+          //console.log(this.totalConfirmed);
+        })
+        this.initChart('c');
       })
           }
-          updateChart(input:HTMLInputElement)
-      {
-        console.log(input.value);
-      }
-
-  }
+            }
 
