@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {GlobalDataSummary} from '../models/global-data';
+import {DateWiseData} from '../models/date-wise-data';
 import{map} from 'rxjs/operators';
-import { templateJitUrl } from '@angular/compiler';
-import { CombineLatestSubscriber } from 'rxjs/internal/observable/combineLatest';
 
 @Injectable({
   providedIn: 'root'
@@ -20,22 +19,30 @@ private dateWiseDataUrl="https://raw.githubusercontent.com/CSSEGISandData/COVID-
     return this.http.get(this.dateWiseDataUrl,{responseType:'text'}).pipe(
       map(result=>{
         let rows=result.split('\n');
-console.log(rows);
+//console.log(rows);
+let mainData={};
 let header=rows[0];
 let dates=header.split(/,(?=\S)/);
 dates.splice(0,4); // to access only dates
-rows.splice(0,1);
+rows.splice(0,1);// to remove heaader section from data 
 rows.forEach(row=>{
-  let cols=row.split(/,(?=\S)/)
-  let con=cols[1];
-cols.splice(0,4);
-console.log(cols,con);
-})
-        return result;
-              })
-    )
-    
+  let cols=row.split(/,(?=\S)/) // access data values
+  let con=cols[1];     // to acess country  values
+cols.splice(0,4);       // to access only dates
+mainData[con]=[];  // generate a key pair basis on country
+cols.forEach((value , index)=>{
+  let dw :DateWiseData={
+    cases: +value  ,
+    country :  con,
+    date : new Date (Date.parse(dates[index]))
   }
+  mainData[con].push(dw)
+  })
+})
+//console.log(mainData);
+return mainData;
+}))
+}  
 getGlobalData()
 {
 
@@ -43,8 +50,6 @@ getGlobalData()
     map(result=>{
       // to merge all the values into a single  and remove redundancy
      // create a object  of type globalDataSummary  for assign and store  a key value pair 
-    
-     
       let data : GlobalDataSummary[]=[];
       let raw={} 
       let row={}
