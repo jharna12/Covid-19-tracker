@@ -21,14 +21,18 @@ export class CountriesComponent implements OnInit {
   totalRecovered = 0;
   selectedCountryData : DateWiseData[]; 
   dateWiseData ;
-  loading = true;
-  options: {
-    height:500, 
-    animation:{
+   dataTable = [];
+   chart={
+    LineChart:'LineChart',
+    height:500,
+    options: {  
+      animation:{
       duration: 1000,
       easing: 'out',
+    },
+    is3D:true
     }
-  }
+    }
   
  
   constructor(private service : DataServiceService) { }
@@ -51,7 +55,6 @@ export class CountriesComponent implements OnInit {
       {
         complete : ()=>{
          this.updateValues('India')
-         this.loading = false;
         }
       }
     )
@@ -61,10 +64,10 @@ export class CountriesComponent implements OnInit {
   }
 
   updateChart(){
-    let dataTable = [];
-    dataTable.push(["Date" , 'Cases'])
+    this.dataTable=[];
+  //  this.dataTable.push(["Date" , 'Cases'])
     this.selectedCountryData.forEach(cs=>{
-      dataTable.push([cs.date , cs.cases])
+     this. dataTable.push([cs.date , cs.cases])
     })
   }
 
