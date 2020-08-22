@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    Ng2GoogleChartsModule
+    Ng2GoogleChartsModule,
+    MDBBootstrapModule.forRoot(),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

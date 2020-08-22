@@ -72,12 +72,22 @@ cs.country,value
 this.pieChart = {
     chartType: 'PieChart',
     dataTable: datatable,
-    options: { height:500,'Country': 'Cases'},
+    options: { height:500, 
+      animation:{
+      duration: 1000,
+      easing: 'out',
+    },
+},
   };
   this.columnChart = {
     chartType: 'ColumnChart',
     dataTable: datatable,
-    options: {height:500,'Country': 'Cases'},
+    options: {height:500,
+      animation:{
+        duration: 1000,
+        easing: 'out',
+      },
+    },
   };
 }
   ngOnInit(): void {

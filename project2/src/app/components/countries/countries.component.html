@@ -1,9 +1,13 @@
-<div class="jumbotron bg-white text-center ">
-    <h1 class="display -4"> Corona covid 19 tracker Country wise</h1>
+    <!-- <div class="ui inverted dimmer" [class.active]='loading'>
+    </div> -->
+    <div style="background-color:#19143E">
+        <div class="jumbotron bg-black text-center" style="background-color:#19143E">
+    <h1 class="text-center"  style="color:white;"> Corona covid 19 tracker Country wise</h1>
 </div>
+<hr>
 <div class="mx-auto">
     <div class="form-group col-lg-5 mx-auto">
-        <label for="c">Select Country</label>
+        <label for="c" style="color: brown;">Select Country</label>
         <select name=""class="form-control" id="c" #input (change)="updateValues(input.value)">
             <option value="{{con}}" *ngFor='let con of countries'>{{con}}</option>
         </select>
@@ -15,25 +19,30 @@
     <div class="col md-6">
         <table class="table col"> 
             <thead>
-                <tr>
-                    <th> SNo</th>
-                    <th> Date</th>
-                    <th> Cases</th>
+                <tr style="background-color:#5B1859">
+                    <th style="text-align:center;color:white">SNo</th>
+                    <th style="text-align:center;color:white"> Date</th>
+                    <th style="text-align:center;color:white"> Cases</th>
     
                 </tr>
                     </thead>
-            <tbody>
-                <tr *ngFor='let cs of selectedCountryData; index as i'>
-                <td>{{i+1}}</td>
-                <td>{{cs.date|date}}</td>
-                <td>{{cs.cases}}</td>
+            <tbody style="background-color:black">
+                <tr *ngFor='let cs of selectedCountryData; index as i' >
+                <td style="text-align:center;color:white">{{i+1}}</td>
+                <td style="text-align:center;color:white">{{cs.date|date}}</td>
+                <td style="text-align:center;color:white">{{cs.cases}}</td>
                 </tr>
             </tbody>
         </table>
     
     </div>
+
     <div class="col md-6">
-        <google-chart [data]="lineChart"></google-chart>
+    <h3 style="color:white;text-align: 
+       center;">Cases Date Wise</h3>
+       
+              <google-chart [data]="lineChart"></google-chart>
+    </div>
     </div>
     </div>
 +

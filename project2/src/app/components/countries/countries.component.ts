@@ -21,18 +21,11 @@ export class CountriesComponent implements OnInit {
   totalRecovered = 0;
   selectedCountryData : DateWiseData[]; 
   dateWiseData ;
+  loading = true;
   lineChart:GoogleChartInterface={
-
     chartType:'LineChart'
   }
-  loading = true;
-  options: {
-    height : 500, 
-    animation:{
-      duration: 1000,
-      easing: 'out',
-    },
-  }
+  
  
   constructor(private service : DataServiceService) { }
 
@@ -74,7 +67,12 @@ export class CountriesComponent implements OnInit {
       dataTable: dataTable,
       //firstRowIsData: true,
       options: {
-      height:500},
+      height:500, 
+      animation:{
+        duration: 1000,
+        easing: 'out',
+      }
+    }
     };
   }
 

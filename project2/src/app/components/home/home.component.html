@@ -1,8 +1,9 @@
-<div class ="jumbotron bg-white text-center">
-    <h1 class="dispaly-4">Corona Covid-19 tracker</h1>
+<div style="background-color:#19143E">
+<div class ="jumbotron text-center" style=" background-color:#19143E">
+    <h1 class="dispaly-4" style="color:white">Corona Covid-19 tracker</h1>
+</div>
     <hr>
     <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalRecovered]='totalRecovered' [totalDeath]='totalDeath'></app-dashboard-card>
-    </div>
     <hr>
     <div class="ui form">
       <div class="inline fields">
@@ -25,6 +26,7 @@
         </div>
           <div class="col-md-6">
           <google-chart [data]="columnChart"></google-chart>
+      </div>
       </div>
     
     
