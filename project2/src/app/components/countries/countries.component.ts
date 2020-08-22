@@ -4,7 +4,7 @@ import { GlobalDataSummary } from 'src/app/models/global-data';
 import { DateWiseData } from 'src/app/models/date-wise-data';
 import { merge } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GoogleChartInterface } from 'ng2-google-charts';
+
 
 @Component({
   selector: 'app-countries',
@@ -22,8 +22,12 @@ export class CountriesComponent implements OnInit {
   selectedCountryData : DateWiseData[]; 
   dateWiseData ;
   loading = true;
-  lineChart:GoogleChartInterface={
-    chartType:'LineChart'
+  options: {
+    height:500, 
+    animation:{
+      duration: 1000,
+      easing: 'out',
+    }
   }
   
  
@@ -62,18 +66,6 @@ export class CountriesComponent implements OnInit {
     this.selectedCountryData.forEach(cs=>{
       dataTable.push([cs.date , cs.cases])
     })
-    this.lineChart = {
-      chartType: 'LineChart',
-      dataTable: dataTable,
-      //firstRowIsData: true,
-      options: {
-      height:500, 
-      animation:{
-        duration: 1000,
-        easing: 'out',
-      }
-    }
-    };
   }
 
   updateValues(country : string){
