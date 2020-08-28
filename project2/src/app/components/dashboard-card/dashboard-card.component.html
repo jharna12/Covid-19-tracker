@@ -2,7 +2,7 @@
     <div class="card col p-4 m-4 " style="background-color:#1371A5">
       <div class="ui statistic">
        <h5 style="text-align:center;color:white">Confirmed</h5>
-        <h3 style="text-align:center;color:white"> {{totalConfirmed}}</h3>
+        <h3 style="text-align:center;color:white"> {{totalConfirmed | number}}</h3>
     </div>
   </div>
   <div class="card col p-4 m-4 " style="background-color:#6D469B">
@@ -11,7 +11,7 @@
        <h5 style="text-align:center;color:white">Active</h5> 
       
       <h3 style="text-align:center;color:white">
-        {{totalActive}}
+        {{totalActive| number}}
       </h3>
   </div>
   </div>
@@ -19,13 +19,13 @@
       <div class="ui statistic">
         <h5 style="text-align:center;color:white">Recovered</h5>
     
-       <h3 style="text-align:center;color:white">{{totalRecovered}}</h3>
+       <h3 style="text-align:center;color:white">{{totalRecovered | number}}</h3>
       </div>
     </div>
         <div class="card col p-4 m-4" style="background-color:#B74B60;">
       <div class="ui statistic">
         <h5 style="text-align:center;color:white"> Death</h5>
-      <h3 style="text-align:center;color:white">{{totalDeath}}</h3>
+      <h3 style="text-align:center;color:white">{{totalDeath | number}}</h3>
       </div>
     </div>
   </div>
