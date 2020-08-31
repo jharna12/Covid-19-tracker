@@ -8,11 +8,16 @@ import{map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataServiceService {
-private globalDataUrl="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/";
+private globalDataUrl='https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/';
 private extension='.csv';
 month;
 date;
 year ;
+getDate(date:number){
+if(date<10){
+return '0'+date;}
+return date;
+}
 private dateWiseDataUrl="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 ///github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
   constructor(private http:HttpClient) { 
@@ -24,10 +29,10 @@ console.log(
 {date:this.date,
   month:this.month,
   year:this.year
-
-  })
+  });
+this.globalDataUrl=this.globalDataUrl+this.getDate(this.month)+'-'+this.getDate(this.date)+'-'+this.year+this.extension;
+console.log(this.globalDataUrl);
   }
-
 // access data date wise  
   getDateWiseData(){
     return this.http.get(this.dateWiseDataUrl,{responseType:'text'}).pipe(
