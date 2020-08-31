@@ -20,6 +20,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
 import {GlobalDataSummary} from '../../models/global-data';
+import {formatNumber} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -73,6 +74,7 @@ initChart(caseType:string){
          value=cs.active
     this.datatable.push([
 cs.country,value
+
     ])
   })
    console.log(this.datatable);
